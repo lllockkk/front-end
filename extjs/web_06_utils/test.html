@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> tab </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			var d = new Date();
+			d.setFullYear(2016);
+			d.setMonth(11);
+			d.setDate(22);
+			d = Ext.Date.add(d, Ext.Date.DAY, 10);
+			alert(d);
+			//alert(d.getFullYear()*10000 + (d.getMonth()+1) *100 + d.getDate());
+			// Ext.add
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

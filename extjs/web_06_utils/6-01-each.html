@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Ext.each </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			var panel = new Ext.Panel({
+				title: "Ext.each",
+				width: "280px",
+				renderTo: Ext.getBody(),
+				html: "<div style='height:160px'></div>"
+			});
+
+			var array = [], i;
+			for(i=0; i<10; i++) {
+				array.push(i);
+			}
+
+			Ext.each(array, fn);
+			Ext.each(array, fn1);
+
+			function fn(item, index, allItems) {
+				if(item>5) {
+					return false;
+				} else {
+					allItems[index] = item + "_st";
+				}
+			}
+
+			function fn1(item, index, allItems) {
+				if(index>0) {
+					Ext.Msg.alert("最后的处理结果", "<div style='width:160px'>最后集合为:" + allItems + "</div>");
+					return false;
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

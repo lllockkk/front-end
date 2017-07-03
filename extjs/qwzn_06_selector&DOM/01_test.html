@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Ext.query </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			// Ext.query()
+			Ext.get("selectAll").on("click", function(e, el) {
+				var els = Ext.query("input[name=articleId]");
+				for(var i=0; i<els.length; i++) {
+					els[i].checked = el.checked;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<table cellpadding="2" cellspacing="2" border="1">
+		<tr>
+			<td width="40"><input type="checkbox" id="selectAll" name="selectAll" value="全选"></td>
+			<td width="200">文章标题</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="1"></td>
+			<td class="title">文章标题1</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="2"></td>
+			<td class="title">文章标题2</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="3"></td>
+			<td class="title">文章标题3</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="4"></td>
+			<td class="title">文章标题4</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="5"></td>
+			<td class="title">文章标题5</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="6"></td>
+			<td class="title">文章标题6</td>
+		</tr>
+	</table>
+</body>
+</html>

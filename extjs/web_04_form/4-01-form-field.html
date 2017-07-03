@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单字段示例</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.QuickTips.init();		// 初始化信息提示功能
+			var form = new Ext.form.Panel({
+				title: "表单",
+				height: 120,
+				width: 200,
+				frame: true,			// 是否渲染表单
+				renderTo: "form",
+				defaults: {				// 统一设置表单字段默认属性
+					// autoFitErrors: false,	// 展示错误信息时是否自动调整字段组件宽度
+					labelSeparator: ":", 		// 分隔符
+					labelWidth: 50,
+					width: 150,
+					allowBlank: false,
+					blankText: "不允许为空",
+					labelAlign: "left",
+					msgTarget: "qtip"	// 显示一个浮动的提示信息
+
+					//msgTarget: "title"	// 显示一个浏览器原始的浮动提示信息
+					//msgTarget: "under"	// 在字段下方显示一个提示信息
+					//msgTarget: "side"		// 在字段的右边显示一个提示信息
+					//msgTarget: "none"		// 不显示提示信息
+					//msgTarget: "errorMsg"	// 在id为errorMsg的元素内显示提示信息
+				},
+				items: [{
+					xtype: "textfield",
+					fieldLabel: "姓名"
+				}, {
+					xtype: "numberfield",
+					fieldLabel: "年龄"
+					
+				}],
+
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+
+	<div id="errorMsg"></div>
+</body>
+</html>

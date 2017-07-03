@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vuex@2.2.1"></script>
+</head>
+
+</body>
+	<div id="app">
+		<com></com>
+	</div>
+
+	<script>
+		var store = new Vuex.Store({
+			state: {
+				num: 1
+			},
+			mutations: {
+
+			}
+		});
+		Vue.component("com",{
+			template: "<div>component {{num}}</div>",
+			computed: {
+				num() {
+					return this.$store.state.num
+				}
+			}
+		});
+
+		new Vue({
+			el: "#app",
+			store
+		});
+	</script>
+</html>

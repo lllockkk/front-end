@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app">
+		<ol>
+			<li v-for="(item, key) in object">{{ key }}-{{ item }}</li>
+		</ol>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				object: {
+					name: "lk",
+					age: 20,
+					sex: "male"
+				}
+			},
+		});
+	</script>
+</body>
+</html>

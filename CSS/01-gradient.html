@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<style>
+	div {
+		font-size: 20px;
+	}
+	.line-gradient {
+		height: 300px;
+		background: linear-gradient(to right, white, gray);
+	}
+	.diagonal-gradient {
+		height: 300px;
+		background: linear-gradient(to right bottom, white, gray);
+	}
+	.angle-gradient {
+		height: 300px;
+		background: linear-gradient(30deg, white, gray);
+	}
+	.not-evenly {
+		height: 300px;
+		background: linear-gradient(to right, white 10%, gray 100%);
+	}
+	.using-transparency {
+		height: 300px;
+		background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+	}
+	.repeating {
+		height: 300px;
+		background: repeating-linear-gradient(to right, red 10%, yellow 15%, green 30%);
+	}
+	.radial-gradient {
+		height: 300px;
+		width: 400px;
+		margin: auto;
+		background: radial-gradient(circle, red, yellow, green);
+	}
+</style>
+<body>
+	<div class="line-gradient">line-gradient, to right</div><br>
+	<div class="diagonal-gradient">diagonal-gradient, to right bottom</div><br>
+	<div class="angle-gradient">angle-gradient, 0deg==to top</div><br>
+	<div class="not-evenly">颜色不均匀分布, 10% white, 90% gray</div>
+	<div class="using-transparency">using transparency</div>
+	<div class="repeating">repeating</div>
+	<div class="radial-gradient">radial-gradient</div>
+</body>
+</html>

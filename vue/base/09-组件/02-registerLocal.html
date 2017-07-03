@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="example">
+		<com></com>
+	</div>
+
+	<script>
+		var com = {
+			template: "<div>A local component!</div>"
+		};
+
+		new Vue({
+			el: '#example',
+			components: {
+				"com": com
+			}
+		})
+	</script>
+</body>
+</html>

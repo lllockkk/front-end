@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义vtype</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.apply(Ext.form.field.VTypes, {
+				phone: function(v) {
+					console.log(v);
+					return /^(\d{3}-|\d{4}-)?(\d{8}|\d{7})$/.test(v);
+				},
+				phoneText: "请输入有效的电话号码",
+				phoneMask: /[\d-]/i,	// 只允许输入数字和-号
+			});
+
+			Ext.create("Ext.form.Panel", {
+				title: "自定义电话号码验证示例",
+				width: 300,
+				frame: true,
+				renderTo: "form",
+				bodyPadding: 5,
+				defaultType: "textfield",
+				items: [
+					{ fieldLabel: "住宅号码", vtype: "phone" },
+					{ fieldLabel: "办公号码", vtype: "phone" }
+				]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

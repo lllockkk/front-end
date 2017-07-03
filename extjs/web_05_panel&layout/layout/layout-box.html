@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> box layout </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				title: "hbox 布局",
+				layout: {
+					type: "hbox",
+					// align: "stretch"	// 子面板高度充满父容器
+					// align: "top"
+					// align: "middle"
+					// align: "bottom"
+					align: "stretchmax"	// 子面板高度为最大项的高度
+				},
+				width: 300,
+				height: 150,
+				frame: true,
+				renderTo: Ext.getBody(),
+				items: [{
+					title: "子面板一",
+					flex: 1,
+					html: "1/4宽(flex=1)"
+				}, {
+					title: "子面板二",
+					flex: 1,
+					html: "1/4宽(flex=1)"
+				}, {
+					title: "子面板三",
+					flex: 2,
+					html: "2/4宽(flex=2)"
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

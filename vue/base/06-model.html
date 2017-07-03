@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app-6">
+		<p>{{ message }}</p>
+		<input v-model="message">
+	</div>
+	
+	<script>
+		var app6 = new Vue({
+			el: "#app-6",
+			data: {
+				message: "Hello Vue.js!"
+			}
+		});
+	</script>
+
+	<br /><br /><br /><br />
+	<hr />
+	说明：
+	v-model指令使得在表单输入和应用状态中做<b>双向数据绑定</b>变得非常轻巧。
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> tab </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			var tabPanel = Ext.create("Ext.tab.Panel", {
+				title: "动态添加标签页",
+				frame: true,
+				width: 300,
+				height: 150,
+				activeTab: 0,	// 默认显示第一个标签页
+				renderTo:Ext.getBody(),
+				items: [
+					{ title: "标签页0", html: "内容0" }					
+				],
+				buttons: [{
+					text: "添加标签页",
+					handler: addTabPage
+				}, {
+					text: "删除标签页",
+					handler: delTabPage
+				}, {
+					text: "显示标签页个数",
+					handler: function() {
+						console.log(tabPanel.items.length);
+					}
+				}]
+			});
+
+			function addTabPage() {
+				var newTab = tabPanel.add({ title: "标签页", html: "内容" });
+				tabPanel.activeTab = newTab;
+				// tabPanel.setActive(true, newTab);
+			}
+
+			function delTabPage() {
+				tabPanel.remove(tabPanel.activeTab);
+			}
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

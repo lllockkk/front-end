@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+
+	<div id="example">
+		<com>
+			<div>some content</div>
+			<div>other content</div>
+		</com>
+
+		<com></com>
+	</div>
+
+	<script>
+		Vue.component("com", {
+			template: "<div><div>title</div><slot>这些是备用内容，只有在没有要分发的内容时，才会显示</slot><div>end</div></div>"
+		});
+
+		new Vue({
+			el: '#example'
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>禁用工具栏</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+	<script>
+		Ext.onReady(function() {
+			var toolbar = Ext.create("Ext.toolbar.Toolbar", {
+				renderTo: "toolbar",
+				width: 500,
+				items: [
+					{ text: "新建", handler: onButtonClick },
+					{ text: "打开", handler: onButtonClick },
+					{ text: "保存", handler: onButtonClick }
+				],
+			});
+
+			function onButtonClick(btn) {
+				alert(btn.text);
+			}
+
+			Ext.get("enabledBtn").on("click", function() {
+				toolbar.enable();
+			});
+
+			Ext.get("disabledBtn").on("click", function() {
+				toolbar.disable();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="toolbar"></div>
+
+	<input id="enabledBtn" type="button" value="启用工具栏" /> <br />
+	<input id="disabledBtn" type="button" value="禁用工具栏" />
+</body>
+</html>

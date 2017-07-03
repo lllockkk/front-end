@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> viewPort </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			// viewport 默认渲染到body中
+			Ext.create("Ext.container.Viewport", {
+				layout: "border",
+				frame: true,
+				// renderTo: Ext.getBody(),
+				items: [{
+					title: "子面板一",
+					html: "上边",
+					region: "north",
+					height: 100
+				}, {
+					title: "子面板二",
+					region: "west",
+					html: "左边",
+					width: 150
+				}, {
+					title: "子面板三",
+					region: "center",
+					html: "中间"
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

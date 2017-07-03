@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>combobox</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.tip.QuickTipManager.init();
+			var data = Ext.create("Ext.data.Store", {
+				fields: ["province", "post"],
+				data: [
+					{ province: "北京", post: 100000 },
+					{ province: "通县", post: 101100 },
+					{ province: "大兴", post: 102600 },
+					{ province: "延庆", post: 102100 },
+					{ province: "顺义", post: 101300 },
+					{ province: "怀柔", post: 101400 }
+				]
+			});
+
+			Ext.create("Ext.form.Panel", {
+				title: "ComboBox",
+				renderTo: "form",
+				frame: true,
+				bodyStyle: "padding: 5",
+				height: 100,
+				width: 270,
+				items: [{
+					xtype: "combo",
+					listConfig: {
+						emptyText: "未找到匹配值",
+						maxHeight: 60
+					},
+					id: "combo123",
+					name: "post",
+					fieldLabel: "邮政编码",
+					triggerAction: "all",
+					queryModel: "local",
+					store: data,
+					displayField: "province",
+					valueField: "post",
+					forceSelection: true,
+					typeAhead: true,
+					value: 101400
+				}]
+			});
+
+			Ext.tip.QuickTipManager.register({
+	        	// target: "name",			// name field和label都有提示框
+	        	target: combo,	// label有提示框
+	        	// target: "name-inputEl",	// field有提示框
+	        	title: "tip title",
+	        	text: "This is text",
+	        	width: 100,
+	        	dismissDelay: 10000
+	        });
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

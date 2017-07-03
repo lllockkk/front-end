@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> autoLoad </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				title: "面板加载远程页面",
+				height: 150,
+				width: 250,
+				frame: true,
+				autoScroll: true,
+				collapsible: true,		// 允许展开和收缩
+				renderTo: Ext.getBody(),
+				bodyPadding: 5,
+				autoLoad: "5-02.html"
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

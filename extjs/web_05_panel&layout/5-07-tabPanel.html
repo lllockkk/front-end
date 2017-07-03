@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> tab </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.tab.Panel", {
+				title: "Ext.tab.Panel示例",
+				frame: true,
+				width: 300,
+				height: 150,
+				activeTab: 1,	// 默认显示第二个标签页
+				renderTo:Ext.getBody(),
+				items: [
+					{ title: "标签页1", html: "内容1" },
+					{ title: "标签页2", html: "内容2" },
+					{ title: "标签页3", html: "内容3" },
+					{ title: "标签页4", html: "内容4" },
+					{ title: "标签页5", html: "内容5" }
+				]
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

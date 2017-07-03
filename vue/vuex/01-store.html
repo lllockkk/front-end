@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vuex@2.2.1"></script>
+</head>
+<body>
+	<div id="app">
+		<div>{{ count }}</div>
+		<div>
+			<button @click="inc">+</button>
+			<button @click="dec">-</button>
+		</div>
+	</div>
+
+	<script>
+		const store = new Vuex.Store({
+			state: {
+				count: 0
+			},
+			mutations: {
+				inc: state => state.count++,
+				dec: state => state.count--
+			}
+		});
+		new Vue({
+			el: "#app",
+			computed: {
+				count() {
+					return store.state.count;
+				}
+			},
+			methods: {
+				inc() {
+					store.commit("inc");
+				},
+				dec() {
+					store.commit("dec");
+				}
+			}
+		});
+	</script>
+</body>
+</html>

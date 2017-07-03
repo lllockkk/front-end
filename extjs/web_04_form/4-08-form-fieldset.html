@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fieldset</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.form.Panel", {
+				title: "fieldset",
+				renderTo: Ext.getBody(),
+				frame: true,
+				height: 300,
+				width: 300,
+				items: [{
+					xtype: "fieldset",
+					title: "产品信息",
+					width: 220,
+					collapsible: true,		// 显示切换展开收缩状态的切换按钮
+					defaultType: "textfield",
+					items: [
+						{ fieldLabel: "产地" },
+						{ fieldLabel: "售价" },
+					]
+				}, {
+					title: "产品描述",
+					xtype: "fieldset",
+					checkboxToggle: true,	// 显示切换展开收缩状态的复选框
+					checkboxName: "description",	// 提交数据时复选框对应的name
+					items: [{
+						xtype: "textarea",
+						fieldLabel: "简介"
+					}]
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

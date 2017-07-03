@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> column layout百分比定位 </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				layout: "column",
+				title: "column 固定宽",
+				height: 150,
+				width: 300,
+				frame: true,
+				renderTo: "panel1",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF",
+					height: 100,
+				},
+				items: [{
+					title: "子面板一",
+					html: "width: 50",
+					width: 50
+				}, {
+					title: "子面板二",
+					html: "width: 150",
+					width: 150
+				}]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				layout: "column",
+				title: "column 百分比宽",
+				height: 150,
+				width: 300,
+				frame: true,
+				renderTo: "panel2",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF",
+					height: 100,
+				},
+				items: [{
+					title: "子面板一",
+					html: "columnWidth: 0.6",
+					columnWidth: 0.6
+				}, {
+					title: "子面板二",
+					html: "columnWidth: 0.4",
+					columnWidth: 0.4
+				}]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				layout: "column",
+				title: "column 混合使用两种方式指定列宽",
+				height: 150,
+				width: 500,
+				frame: true,
+				renderTo: "panel2",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF",
+					height: 100,
+				},
+				items: [{
+					title: "子面板二",
+					html: "columnWidth: 0.3",
+					columnWidth: 0.3
+				},{
+					title: "子面板一",
+					html: "width: 100",
+					width: 100
+				},  {
+					title: "子面板二",
+					html: "columnWidth: 0.7",
+					columnWidth: 0.7
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+	<p style="font-size: 18px">同时使用固定值和百分比来指定列宽时，固定值优先于百分比，即百分比计算的基础宽度是父容器的宽度减去固定列宽之后剩余的宽度值。</p>
+</body>
+</html>

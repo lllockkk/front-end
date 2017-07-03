@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cls</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<style>
+		.custom{
+			height: 17px;
+			background: red;
+		}
+
+		.custom .x-progress-bar {
+			height: 15px;
+			background: green;
+			border-top: 1px solid #BEBEBE;
+			border-bottom: 1px solid #EFEFEF;
+			border-right: 0;
+		}
+	</style>
+
+	<script>
+		Ext.onReady(function() {
+			var proBar = Ext.create("Ext.ProgressBar", {
+				width: 300,
+				renderTo: Ext.getBody(),
+				cls: "custom"
+			});
+
+			proBar.wait({
+				duration: 10000,
+				interval: 1000,
+				increment: 10,
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

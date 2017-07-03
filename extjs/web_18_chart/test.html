@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+    <script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+    <script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+    <script>
+    Ext.onReady(function() {
+        var thisTitle = "this title";
+        var list = [];
+        for (var i = 0 ; i < 20 ; i++) {
+
+           list.push({
+               'ProduceLineName': '生产线' + i,
+               'Capacity': 2 * i,
+               'RealCapacity': i * i,
+           });
+        }
+
+        this.myDataStore = Ext.create('Ext.data.JsonStore', {
+            fields: ['ProduceLineName', 'Capacity', 'RealCapacity'],
+            data: list
+        });
+
+        var colors = ['#31B09F', '#FF901A'];
+        Ext.define('Ext.chart.theme.MyFancy', {
+            extend: 'Ext.chart.theme.Base',
+            constructor: function (config) {
+                this.callParent([Ext.apply({
+                    colors: colors
+                }, config)]);
+            }
+        });
+
+        var chart = Ext.create('Ext.chart.Chart', {
+            xtype: 'chart',
+            width: 1500,
+            height: 410,
+            padding: '10 0 0 0',
+            theme: 'MyFancy',
+            animate: true,
+            shadow: true,
+            style: 'background: #fff;',
+            legend: { position: 'right', labelFont: '10px Helvetica' },
+            store: this.myDataStore,
+            insetPadding: 35,
+            items: [
+            {
+                type: 'text', text: thisTitle, font: '22px Helvetica',
+                width: 100, height: 40,
+                x: 450, y: 12
+            }],
+            
+            axes: [{
+                title: '产能',
+                type: 'Numeric',
+                position: 'left',
+                grid: true,
+                fields: ['Capacity', 'RealCapacity'],
+                minimum: 0,
+                label: {
+                    font: '15px Helvetica',
+                }
+
+
+            },
+                {
+                    title: '生产线',
+                    type: 'Category',
+                    position: 'bottom',
+                    grid: true,
+                    fields: 'ProduceLineName',
+                    label: {
+                        font: '15px Helvetica',
+                        //rotate: {
+                        //    degrees: 30
+                        //}
+                    }
+                }],
+
+            series: [{
+                type: 'column',
+                axis: 'left',
+                xField: 'ProduceLineName',
+                yField: ['Capacity', 'RealCapacity'],
+                title: ['计划产能', '实际产能'],
+                stacked: false,
+                //style: { 'stroke-width': 4 },
+                label: {
+                    display: 'insideEnd',
+                    font: '18px Helvetica',
+                    field: ['Capacity', 'RealCapacity'],
+                    renderer: Ext.util.Format.numberRenderer('0'),
+                    orientation: 'horizontal',
+                    color: '#333',
+                    'text-anchor': 'middle'
+                },
+                //style: {width: 100}
+            }]
+        });
+
+        // var select = Ext.create(Ext.Action, {
+        //     text: '查询',
+        //     hidden: vcl.isEdit,
+        //     handler: function () {
+        //         Ax.utils.LibQueryForm.createForm(vcl, undefined, undefined, function () {
+        //             vcl.win.removeAll();
+        //             vcl.win.add(me.createChart());
+        //         });
+        //     }
+        // });
+        // var refresh = Ext.create(Ext.Action, {
+        //     text: '刷新',
+        //     hidden: vcl.isEdit,
+        //     handler: function () {
+        //         vcl.showRpt(vcl.queryCondition);
+        //         vcl.win.removeAll();
+        //         vcl.win.add(me.createChart());
+        //     }
+        // });
+
+        var savepic = Ext.create(Ext.Action, {
+            text: '保存图形',
+            handler: function () {
+                Ext.MessageBox.confirm('确认下载', '你要下载该报表为一张图片吗?', function (choice) {
+                    if (choice == 'yes') {
+                        chart.save({
+                            type: 'image/png'
+                        });
+                    }
+                });
+            }
+        });
+
+        var mainWidth = document.body.clientWidth > 1210 ? document.body.clientWidth - 10 : 1210;
+        var mainPanel = Ext.create('Ext.panel.Panel', {
+            width: 1024,
+            height: 500,
+            // autoScroll: true,
+            // layout: { type: 'fit' },
+            renderTo: Ext.getBody(),
+            layout: "fit",
+            items: chart
+            // border: false,
+            //tbar: Ax.utils.LibToolBarBuilder.createToolBar([select, refresh, vcl.createChangeView(me, 'create', 'createChart', '图表'), savepic])
+        });
+        // return mainPanel;
+
+
+    });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

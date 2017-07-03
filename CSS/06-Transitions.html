@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transitions</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			color: white;
+			background: red;
+			transition: width 2s, background 2s, color 2s
+		}
+
+		div:hover {
+			width :300px;
+			color: blue;
+			background: orange;
+		}
+		
+		.linear {
+			transition-timing-function: linear;
+		}
+		.ease {
+			transition-timing-function: ease;
+		}
+		.ease-in {
+			transition-timing-function: ease-in;
+		}
+		.ease-out {
+			transition-timing-function: ease-out;
+		}
+		.ease-in-out {
+			transition-timing-function: ease-in-out;
+		}
+		.delay {
+			transition-delay: 0.5s;
+		}
+	</style>
+</head>
+<body>
+	<div class="linear">linear</div><br>
+	<div class="ease">ease</div><br>
+	<div class="ease-in">ease-in</div><br>
+	<div class="ease-out">ease-out</div><br>
+	<div class="ease-in-out">ease-in-out</div><br>
+	<div class="delay">delay 0.5s</div>
+</body>
+</html>

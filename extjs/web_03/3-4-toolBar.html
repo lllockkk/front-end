@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>toolbar</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+	<script>
+		Ext.onReady(function() {
+			var toolbar = Ext.create("Ext.toolbar.Toolbar", {
+				renderTo: Ext.getBody(),
+				width: 500
+			});
+
+			toolbar.add([
+				{ text: "新建" },
+				{ text: "打开" },
+				{ text: "编辑" },
+				{ text: "保存" },
+				"-",
+				{
+					xtype: "textfield",
+					hideLabel: true,
+					width: 150
+				},
+				"->",
+				"<a href=#>超链接</a>",
+				{ xtype: "tbspacer", width: 50 },
+				"静态文本"
+			]);
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

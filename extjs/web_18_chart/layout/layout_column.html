@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>column layout</title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+    <script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+	<script>
+		Ext.onReady(function() {  
+        var win = Ext.create('Ext.Window',{  
+            title: "Column Layout",  
+            height: 300,  
+            width: 400,  
+            plain: true,  
+            layout: 'column',  
+            items: [{  
+                title:"width=50%",  
+                columnWidth:0.5,  
+                html:"width=(容器宽度-容器内其它组件固定宽度)*50%",  
+                height:200  
+            },  
+            {  
+                title:"width=250px",  
+                width: 200,  
+                height:100,  
+                html:"固定宽度为250px"  
+            }              
+            ]  
+        });  
+        win.show();  
+    });  
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

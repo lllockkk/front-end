@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ext.panel.Panel示例</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				title: "面板头部(header)",
+				tbar: ["顶部工具栏(top toolbar)"],
+				bbar: ["底部工具栏(bottom toolbar)"],
+				height: 200,
+				width: 350,
+				frame: true,
+				renderTo: Ext.getBody(),
+				html: "面板体(body)",
+				tools: [				// 右上角的按钮
+					{ id: "toggle" },	// 固定按钮
+					{ id: "close" },	// 关闭按钮
+					{ id: "maximize" }	// 最大化按钮
+				],
+
+				buttons: [{
+					text: "面板底部(footer)"
+				}]
+			});
+
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

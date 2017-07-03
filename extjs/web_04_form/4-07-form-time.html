@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>time</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.form.Panel", {
+				title: "Ext.form.field.Time",
+				renderTo: Ext.getBody(),
+				frame: true,
+				height: 100,
+				width: 300,
+				items: [{
+					xtype: "timefield",
+					fieldLabel: "时间选择框",
+					width: 220,
+					maxValue: "18:00",
+					maxText: "时间应小于{0}",
+					minValue: "10:00",
+					minText: "时间应大于{0}",
+					pickerMaxHeight: 70,
+					increment: 60,
+					format: "G时i分s秒",
+					invalidText: "时间格式无效"
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

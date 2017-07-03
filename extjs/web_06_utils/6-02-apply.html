@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Ext.apply </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			var tarObj = {};
+			var srcObj = {};
+			tarObj.text = "这个文本会被覆盖";
+			srcObj.name = "源对象";
+			srcObj.text = "我的文本内容已经从srcObj中拷贝过来了";
+			Ext.apply(tarObj, srcObj);
+			console.log(tarObj);
+		});
+	</script>
+</head>
+<body>
+	<div style="margin: auto; width: 100px">hello</div>
+</body>
+</html>

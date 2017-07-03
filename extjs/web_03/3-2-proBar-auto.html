@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动模式的进度条</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			var proBar = Ext.create("Ext.ProgressBar", {
+				text: "working",
+				width: 300,
+				renderTo: Ext.getBody(),
+			});
+
+			proBar.wait({
+				duration: 10000,
+				interval: 1000,
+				increment: 20,
+				text: "waiting",
+				scope: this,
+				fn: function() {
+					Ext.Msg.alert("更新完毕");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

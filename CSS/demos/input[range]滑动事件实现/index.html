@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+	<input id="myRange" type="range"  onslide="test()" class="myRange">
+	<span id="rangeValue">0</span>
+	<script>
+		function test() {
+			var val = document.getElementById("rangeValue");
+			// val.innerText = 
+			var range = document.getElementById("myRange");
+			val.innerText = range.value;
+		}
+
+		var ranges = document.getElementsByClassName("myRange");
+		var i;
+		for(i=0; i<ranges.length; i++) {
+			var ele = ranges[i];
+			if (ele.attributes.onslide) {
+				var fun = ele.attributes.onslide.value;
+				var slideFun = new Function(fun);
+
+				console.log(ele);
+				
+				ele.addEventListener("mousedown",function() {
+					ele.slideFlag = true;
+				});
+
+				ele.addEventListener("mouseup",function() {
+					ele.slideFlag = false;
+				});
+				ele.addEventListener("mousemove",function(e) {
+					if(ele.slideFlag)
+						slideFun(e);
+				});
+			}
+		}
+	</script>
+</body>
+</html>

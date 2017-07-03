@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>折线图</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	<script>
+		Ext.onReady(function() {
+			console.log(Ext.Date.format(new Date(), "Ymd"));
+
+			var dataStore = new Ext.data.JsonStore({
+				fields: ["name", "percentage"],
+				data: [
+					{"name": "小于30岁", "percentage": 2},
+					{"name": "30-40岁", "percentage": 4},
+					{"name": "40-50岁", "percentage": 3},
+					{"name": "50-60岁", "percentage": 3}
+				]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				title: "员工年龄分布图",
+				width: 400,
+				height: 400,
+				renderTo: Ext.getBody(),
+				layout: "fit",
+				items: [{
+					xtype: "chart",
+					store: dataStore,
+					axes: [{
+						type: "Numeric",
+						dashSize: 10,
+						position: "left",
+						fields: ["percentage"],
+						title: "百分比",
+						grid: {
+							odd: {
+								opacity: 1,			// 不透明
+								fill: "#FFFF99",	// 表格内的填充颜色
+								stroke: "#FF3300", 	// 表格线颜色
+								"stroke-width": 0.5 // 表格线宽度
+							},
+							even: {
+								opacity: 0,			// 不透明
+								stroke: "#6600CC", 	// 表格线颜色
+								"stroke-width": 0.5 // 表格线宽度
+							}
+						},
+						majorTickSteps: 10,			// 主区间数
+						minorTickSteps: 3,			// 主区间数
+					},{
+						type: "Category",
+						position: "bottom",
+						fields: ["name"],
+						grid: true,
+						title: "年龄段"
+					}],
+					series: [{
+						type: "line",
+						axis: "left",
+						xField: "name",
+						yField: "percentage"
+					}]
+				}]
+			});
+
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

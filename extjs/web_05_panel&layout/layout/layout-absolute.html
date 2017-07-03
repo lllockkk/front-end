@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> absolute layout百分比定位 </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				layout: "absolute",
+				title: "absolute layout",
+				height: 150,
+				width: 300,
+				frame: true,
+				renderTo: "panel",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF",
+					height: 70,
+					width: 100
+				},
+				items: [{
+					title: "子面板一",
+					html: "子面板一",
+					x: 10,
+					y: 10
+				}, {
+					title: "子面板二",
+					html: "子面板二",
+					x: 130,
+					y: 40
+				}]
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div id="panel"></div>
+</body>
+</html>

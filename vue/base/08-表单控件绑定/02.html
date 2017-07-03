@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="radio" name="test" v-model="picked" value="a">
+		<input type="radio" name="test">
+		<span>{{ picked }}</span>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				picked: ""
+			}
+		});
+	</script>
+</body>
+</html>

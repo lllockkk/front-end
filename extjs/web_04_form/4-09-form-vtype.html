@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vtype</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.QuickTips.init();
+			Ext.create("Ext.form.Panel", {
+				title: "vtype",
+				renderTo: Ext.getBody(),
+				frame: true,
+				width: 300,
+				defaultType: "textfield",
+				items: [
+					{ fieldLabel: "电子邮件", vtype: "email" },
+					{ fieldLabel: "网址", vtype: "url" },
+					{ fieldLabel: "字母", vtype: "alpha" },
+					{ fieldLabel: "字母和数字", vtype: "alphanum" }
+				]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

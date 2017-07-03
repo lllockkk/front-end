@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vuex@2.2.1"></script>
+</head>
+<body>
+	<div id="app">
+		{{ age }}
+	</div>
+
+	<script>
+		var store = new Vuex.Store({
+			state: {
+				name: "John",
+				age: 123,
+				sex: "male"
+			}
+		});
+		new Vue({
+			el: "#app",
+			computed: Vuex.mapState({
+				// 箭头函数可使代码更简练
+				name: state => state.count,
+				age: state => state.age,
+
+				sex: state => state.sex,
+
+				countPlusLocalState(state) {
+					return state.count + this.localCount;
+				}
+			})
+		});
+	</script>
+</body>
+</html>

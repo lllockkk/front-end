@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> table layout百分比定位 </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				layout: {
+					type: "table",
+					columns: 4
+				},
+				title: "table layout",
+				height: 150,
+				width: 220,
+				frame: true,
+				renderTo: "panel1",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF",
+					width: 50,
+					height: 50
+				},
+				items: [{
+					title: "子面板一",
+					html: "colspan: 3",
+					width: 150,
+					colspan: 3
+				}, {
+					title: "子面板二",
+					html: "rowspan: 2",
+					height: 100,
+					rowspan: 2
+				}, {
+					title: "子面板三",
+				}, {
+					title: "子面板四",
+				}, {
+					title: "子面板五",
+				}]
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+	<p style="font-size: 18px">同时使用固定值和百分比来指定列宽时，固定值优先于百分比，即百分比计算的基础宽度是父容器的宽度减去固定列宽之后剩余的宽度值。</p>
+</body>
+</html>

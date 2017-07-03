@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>骰子</title>
+	<style>
+		.sz {
+			/*background-color: #adadad;*/
+			width: 100px;
+			height: 100px;
+			perspective: 1000px;
+			perspective-origin: 200% 200%
+		}
+		.sz div {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			width: 100px;
+			height: 100px;
+			/*border: 1px solid black;*/
+			border-radius: 10px;
+
+			text-shadow: 2px 2px blue;
+			text-align: center;
+			font-size: 50px;
+			color: white;
+			line-height: 100px;
+
+			opacity: .5;
+		}
+		.div1 {
+			background-color: red;
+			z-index: 100;
+		}
+		.div2 {
+			background-color: orange;
+			transform: rotateY(90deg);
+			transform-origin: 0 50%
+		}
+		.div3 {
+			background-color: yellow;
+			transform: rotateY(-90deg);
+			transform-origin: 100% 50%
+		}
+		.div4 {
+			background-color: green;
+			transform: rotateX(-90deg);
+			transform-origin: 50% 0%
+		}
+		.div5 {
+			background-color: blue;
+			transform: rotateX(90deg);
+			transform-origin: 50% 100%
+		}
+		.div6 {
+			background-color: pink;
+			transform: translateZ(-100px);
+		}
+	</style>
+</head>
+<body>
+	<div id="sz" class="sz">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+		<div class="div5">5</div>
+		<div class="div6">6</div>
+	</div>
+<div style="position: absolute; top: 200px;">
+	x: <input type="range" id="x-point" min="-500" max="500" value="200"><span id="x-value">50%</span><br>
+	y: <input type="range" id="y-point" min="-500" max="500" value="200"><span id="y-value">50%</span>
+</div>
+	<script>
+		var x = document.getElementById("x-point");
+		var y = document.getElementById("y-point");
+		var sz = document.getElementById("sz");
+
+		x.onchange = function() {
+			setValue("x-value", x.value);
+			setPerspective();
+		}
+
+		y.onchange = function() {
+			setValue("y-value", y.value);
+			setPerspective();
+		}
+
+		function setPerspective() {
+			sz.style.perspectiveOrigin = x.value+"%"+y.value+"%";
+		}
+
+		function setValue(id, value) {
+			document.getElementById(id).innerText = value + "%";
+			console.log(1);
+		}
+	</script>
+</body>
+</html>

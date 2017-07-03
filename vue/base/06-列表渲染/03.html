@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<script>
+		Vue.component("com", {
+			template: '\
+			<li>\
+				{{ title }}\
+				<button @click="$emit(\'remove\')">X</button>\
+			</li>',
+			props: ['title']
+		});
+	</script>
+
+	<div id="app">
+		<input @keyup.enter="addNewTodo" v-model="newTodoText" placeholder="Add a todo">
+		<ul>
+			<com v-for="(item, index) in todos" :title="item" @remove="todos.splice(index, 1)"></com>
+		</ul>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				newTodoText: "",
+				todos: [
+					'Do the dished',
+					'Take out the trash',
+					'Mow the lawn'
+				]
+			},
+			methods: {
+				addNewTodo: function() {
+					this.todos.push(this.newTodoText);
+					this.newTodoText = "";
+				}
+			}
+		});
+	</script>
+</body>
+</html>

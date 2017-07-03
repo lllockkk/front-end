@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>翻牌效果</title>
+</head>
+<body>
+<style>
+	.front, .back {
+		width: 280px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		transition: 0.8s ease-out;
+	}
+	.card {
+		margin: 50px;
+		perspective: 1000px;
+		width: 280px;
+		height: 280px;
+	}
+	.card img {
+		border-radius: 50%;
+		width: 280px;
+		height: 280px;
+	}
+	.front {
+		z-index: 2;
+		backface-visibility: hidden;
+		transform: rotateY(0deg);
+	}
+
+	.back {
+		z-index: 1;
+		backface-visibility: hidden;
+		transform: rotateY(-180deg);
+	}
+	.card:hover .back {
+		transform: rotateY(0deg);
+	}
+	.card:hover .front {
+		transform: rotateY(180deg);
+	}
+</style>
+<div class="card"> 
+	<div class="front"><img src="../image-gallery/img_forest.jpg">前面</div>
+	<div class="back" ><img src="../image-gallery/img_lights.jpg">后面</div>
+</div>
+
+</body>
+</html>

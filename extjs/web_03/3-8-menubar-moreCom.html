@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>更多菜单栏的组件</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+	<script>
+		Ext.onReady(function() {
+			var toolbar = new Ext.toolbar.Toolbar({
+				renderTo: "toolbar",
+				width: 300
+			});
+
+			var fileMenu = new Ext.menu.Menu({
+				items: [
+					{
+						xtype: "textfield",
+						hideLabel: true,
+						width: 100
+					},
+					{
+						text: "颜色选择",
+						menu: new Ext.menu.ColorPicker()
+					},
+					{
+						text: "日期",
+						// xtype: "datepicker"
+						menu: new Ext.menu.DatePicker()
+					},
+					{
+						xtype: "buttongroup",
+						columns: 3,
+						title: "按钮组",
+						items: [
+							//{ text: "用户管理", scale: "large", colspan: 3, width: 170, iconCls: "userManagerIcon", iconAlign: "top" },
+							{ text: "新建", iconCls: "newIcon" },
+							{ text: "打开", iconCls: "openIcon" },
+							{ text: "保存", iconCls: "saveIcon" }
+						]
+					}
+				]
+			});
+
+			toolbar.add( { text: "文件", menu: fileMenu });
+		});
+	</script>
+</head>
+<body>
+	<div id="toolbar"></div>
+
+</body>
+</html>

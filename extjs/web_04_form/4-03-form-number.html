@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>numberfield示例</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.QuickTips.init();		// 初始化信息提示功能
+			var form = new Ext.form.Panel({
+				autoFitErrors: true,
+				title: "Number",
+				width: 300,
+				height: 150,
+				frame: true,
+				renderTo: "form",
+				defaults: {
+					xtype: "numberfield",
+					// labelSeparator: ":",
+					// labelWidth: 80,
+					// width: 200,
+					// labelAlign: "left",
+					// msgTarget: "qtip"
+				},
+				items: [{
+					fieldLabel: "整数",
+					hideTrigger: true,
+					allowDecimals: false,	// 不允许小数
+					nanText: "请输入有效的整数"
+				}, {
+					fieldLabel: "小数",
+					allowDecimals: true,
+					decimalPrecision: 2,
+					step: 0.1,
+					nanText: "请输入有效的小数"
+				}, {
+					fieldLabel: "数字限制",
+					baseChars: "12345",
+					nanText: "请输入有效的小数"
+				}, {
+					fieldLabel: "数字范围",
+					maxValue: 100,
+					minValue: 50
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

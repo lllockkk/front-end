@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animations</title>
+
+	<style>
+		@keyframes fromTo {
+			from { background-color: red; }
+			to { background-color: yellow; }
+		}
+		@keyframes percent {
+			0% { background-color: red; left: 0px; top: 0px; }
+			25% { background-color: orange; left: 200px; top: 0px; }
+			50% { background-color: yellow; left: 200px; top: 200px; }
+			75% { background-color: yellow; left: 0px; top: 200px; }
+			100% { background-color: green; left: 0px; top: 0px; }
+		}
+		
+		div {
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+		}
+		.div1 {
+			background-color: red;
+			animation-name: fromTo;
+			animation-duration: 4s;
+			animation-fill-mode: backwards;
+		}
+
+		.div2 {
+			position: relative;
+			background-color: red;
+			animation-name: percent;
+			animation-duration: 4s;
+			animation-direction: alternate;
+			animation-iteration-count: 4;
+		}
+		.delay {
+			background: red;
+			animation: fromTo 4s 2s infinite;
+		}
+		.paused {
+			position: relative;
+			animation: percent 4s infinite;
+		}
+
+		.paused:hover {
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="delay"></div>
+
+	<div class="paused">hover over to paused</div>
+</body>
+</html>

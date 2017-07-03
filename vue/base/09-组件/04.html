@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+
+	<div id="example">
+		<table>
+			<my-row></my-row>
+		</table>
+
+		<table>
+			<tr is="my-row"></tr>
+		</table>
+	</div>
+
+	<script>
+		Vue.component("my-row", {
+			template: "<tr><td>a</td><td>b</td></tr>",
+		});
+
+		new Vue({
+			el: '#example',
+
+		})
+	</script>
+</body>
+</html>

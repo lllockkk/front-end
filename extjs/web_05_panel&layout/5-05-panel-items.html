@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> items </title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				title: "items填充面板",
+				width: 200,
+				frame: true,
+				autoScroll: true,
+				collapsible: true,		// 允许展开和收缩
+				renderTo: Ext.getBody(),
+				bodyPadding: 5,
+				items: [{
+					xtype: "datepicker",
+					minDate: new Date()
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

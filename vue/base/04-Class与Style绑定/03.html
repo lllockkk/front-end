@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+	<style>
+		.static {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+
+		.active {
+			background-color: #ddd;
+		}
+	</style>
+<body>
+
+	<script>
+		Vue.component("com", {
+			template: "<p class='foo bar'>Hi</p>"
+		});
+	</script>
+
+	<div id="app">
+		<com class="baz boo"></com>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app"
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app">
+		<heading :level="3">Hello</heading>
+	</div>
+
+	<script>
+		Vue.component("heading", {
+			props: {
+				level: {
+					type: Number,
+					require: true
+				}
+			},
+			render: function(createElement) {
+				return createElement("h"+this.level, this.$slots.default);
+			}
+		});
+
+		new Vue({
+			el: "#app"
+		});
+	</script>
+</body>
+</html>

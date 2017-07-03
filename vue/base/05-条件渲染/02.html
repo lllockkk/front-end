@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="text" placeholder="Enter your username" v-if="ok" key="aa">
+		<input type="text" placeholder="Enter your email address" v-else key="a">
+		<br>
+		<input type="button" @click="toggle" value="toggle">
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				ok: true
+			},
+			methods: {
+				toggle: function() {
+					this.ok = !this.ok;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

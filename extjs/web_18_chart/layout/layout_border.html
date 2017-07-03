@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border layout</title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+    <script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+	<script>
+Ext.onReady(function(){
+    var tab = Ext.create('Ext.tab.Panel',{
+		region:'center',//border布局，将页面分成东，南，西，北，中五部分，这里表示TabPanel放在中间  
+		margins:'3,3,3,0',
+		activeTab:0,
+		defaults:{
+			autoScroll:true
+		},
+		items:[{
+			title:'tab1',
+			html:'第一个tab内容</br>第一个tab内容</br>第一个tab内容</br>第一个tab内容</br>第一个tab内容</br>第一个tab内容</br>'
+		},{
+			title:'tab2',
+			html:'第二个tab内容'
+		},{
+			title:'tab3',
+			html:'第三个tab内容'
+		}]
+		
+	});
+	var nav = Ext.create('Ext.panel.Panel',{
+		title:'navigation',
+		region:'west',
+		split:true,
+		width:200,
+		collapsible:true,//允许伸缩
+		margins:'3,0,3,3',
+		cmargins:'3,3,3,'
+	});
+	Ext.create('Ext.Window',{
+		title:'Layout Window',
+		width:600,
+		height:350,
+		closable:true,
+		border:false,
+		plain:true,
+		layout:'border',
+		closeAction:'hide',
+		items:[nav,tab]
+	}).show();
+});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

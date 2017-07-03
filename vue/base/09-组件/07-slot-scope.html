@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+
+	<div id="example">
+		<com>
+			<template slot="s1" scope="props">
+				<div>hello from parent</div>
+				<div>{{ props.text }}</div>
+				<div>{{ props.num }}</div>
+			</template>
+		</com>
+	</div>
+
+	<script>
+		Vue.component("com", {
+			template: "<div class='child'><slot name='s1' num=1 text='hello from child'></slot></div>"
+		});
+
+		new Vue({
+			el: '#example'
+		});
+	</script>
+</body>
+</html>

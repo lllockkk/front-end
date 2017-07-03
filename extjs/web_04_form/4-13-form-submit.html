@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单数据 action-submit 示例</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.QuickTips.init();
+			var loginForm = Ext.create("Ext.form.Panel", {
+				title: "表单提交示例",
+				frame: true,
+				width: 220,
+
+				standardSubmit: true,	// true同步提交
+				
+				renderTo: "form",
+				fieldDefaults: {
+					labelWidth: 50,
+					allowBlank: false
+				},
+				defaultType: "textfield",
+				items: [{
+					fieldLabel: "用户名",
+					name: "username",
+					vtype: "email"
+				}, {
+					fieldLabel: "密码",
+					name: "password",
+					inputType: "password"
+				}],
+				buttons: [{
+					text: "登录",
+					handler: login
+				}, {
+					text: "重置",
+					handler: function() {
+						loginForm.getForm().reset();
+					}
+				}]
+			});
+
+			function login() {
+				loginForm.getForm().submit({
+					clientValidation: true,
+					url: "4-13.json",
+					method: "GET",
+					success: function(form, result) {
+						Ext.Msg.alert("提示", "系统登录成功");
+					},
+					failure: function(form, result) {
+						Ext.Msg.alert("提示", "系统登录失败，原因：" + result.failureType);
+					}
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+	<div id="app">
+		<select v-model="selected">
+			<option v-for="option in options" :value="option.value">{{ option.text }}</option>
+		</select>
+
+		<span>{{ selected }}</span>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				selected: "a",
+				options: [
+					{ value: "a", text: "A" },
+					{ value: "b", text: "B" },
+					{ value: "c", text: "C" }
+				]
+			}
+		});
+	</script>
+</body>
+</html>

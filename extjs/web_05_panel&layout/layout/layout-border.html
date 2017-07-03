@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> border layout </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				layout: "border",
+				title: "border 布局",
+				width: 400,
+				height: 250,
+				frame: true,
+				renderTo: Ext.getBody(),
+				defaults: {
+					collapsible: true
+				},
+				items: [{
+					title: "north",
+					html: "north 需指定 height",
+					region: "north",
+					heigth: 50
+				}, {
+					title: "south",
+					html: "south 需指定 height",
+					region: "south",
+					heigth: 50
+				}, {
+					title: "west",
+					html: "west 需指定 width",
+					region: "west",
+					width: 50
+				}, {
+					title: "east",
+					html: "east 需指定 width",
+					region: "east",
+					width: 50
+				}, {
+					title: "center",
+					html: "center",
+					region: "center"
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

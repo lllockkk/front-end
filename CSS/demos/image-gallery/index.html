@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>image gallery</title>
+	<style>
+		* {
+			margin:0;
+		}
+		
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		.gallery>div {
+			box-sizing: border-box;
+			display: inline-block;
+			border: 1px solid #ddd;
+		    width: 25%;
+		}
+
+		@media only screen and (max-width: 700px){
+		    .gallery>div {
+		        width: 50%;
+		    }
+		}
+
+		@media only screen and (max-width: 500px){
+		    .gallery>div {
+		        width: 100%;
+		    }
+		}
+		
+	</style>
+</head>
+<body>
+	<section class="gallery">
+		<div>
+			<img src="img_fjords.jpg" width="600" height="400">
+			<p>Add a description of the image here</p>
+		</div><!-- 去空格
+	 --><div>
+			<img src="img_forest.jpg" width="600" height="400">
+			<p>Add a description of the image here</p>
+		</div><!-- 去空格
+	 --><div><img src="img_lights.jpg" width="600" height="400">
+			<p>Add a description of the image here</p>
+		</div><!-- 去空格
+	 --><div>
+			<img src="img_mountains.jpg" width="600" height="400">
+			<p>Add a description of the image here</p>
+		</div>
+	</section>
+	
+	<h3 style="text-align: center; margin: 40px">改变窗口大小</h3>
+</body>
+</html>

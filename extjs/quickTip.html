@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="ext-4.2.1/resources/css/ext-all.css" />
+    <script type="text/javascript" src="ext-4.2.1/bootstrap.js"></script>
+    <script type="text/javascript" src="ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+
+    <script>
+    Ext.onReady(function() {
+        Ext.tip.QuickTipManager.init();
+        // Ext.apply(Ext.tip.QuickTip)
+        Ext.create("Ext.form.Panel", {
+        	title: "表单",
+        	height: 120,
+			width: 200,
+			frame: true,
+			renderTo: Ext.getBody(),
+			items: [{
+				xtype: "textfield",
+				id: "name",
+				fieldLabel: "姓名",
+				width: 180,
+				labelWidth: 50
+			}]
+        });
+
+        Ext.tip.QuickTipManager.register({
+        	// target: "name",			// name field和label都有提示框
+        	target: "name-labelEl",	// label有提示框
+        	// target: "name-inputEl",	// field有提示框
+        	title: "tip title",
+        	text: "This is text",
+        	width: 100,
+        	dismissDelay: 10000
+        });
+
+    });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义日期范围vtype</title>
+
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.apply(Ext.form.field.VTypes, {
+				dateRange: function(val, field) {
+					var beginDate = null,
+						beginDateCmp = null,
+						endDate = null,
+						endDateCmp = null,
+						validStatus = true;
+
+					if(field.dateRange) {
+						if(!Ext.isEmpty(field.dateRange.begin)) {
+							beginDateCmp = Ext.getCmp(field.dateRange.begin);
+							beginDate = beginDateCmp.getValue();
+						}
+
+						if(!Ext.isEmpty(field.dateRange.end)) {
+							endDateCmp = Ext.getCmp(field.dateRange.end);
+							endDate = endDateCmp.getValue();
+						}
+					}
+
+					if(!Ext.isEmpty(beginDate) && !Ext.isEmpty(endDate)) {
+						validStatus = beginDate <= endDate;
+					}
+
+					return validStatus;
+				},
+				dateRangeText: "开始日期不能大于结束日期",
+			});
+
+			Ext.create("Ext.form.Panel", {
+				title: "自定义日期范围验证示例",
+				width: 300,
+				frame: true,
+				renderTo: "form",
+				bodyPadding: 5,
+				defaultType: "datefield",
+				fieldDefaults: {
+					format: "Y年n月j日"
+
+				},
+				items: [{
+					id: "beginDate1",
+					fieldLabel: "入学开始日期",
+					// 用于VType类型dateRange
+					dateRange: { begin: "beginDate1", end: "endDate1" },
+					vtype: "dateRange"
+				}, {
+					id: "endDate1",
+					fieldLabel: "入学结束日期",
+					dateRange: { begin: "beginDate1", end: "endDate1" },
+					vtype: "dateRange"
+				},{
+					id: "beginDate2",
+					fieldLabel: "毕业开始日期",
+					// 用于VType类型dateRange
+					dateRange: { begin: "beginDate2", end: "endDate2" },
+					vtype: "dateRange"
+				}, {
+					id: "endDate2",
+					fieldLabel: "毕业结束日期",
+					dateRange: { begin: "beginDate2", end: "endDate2" },
+					vtype: "dateRange"
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+</html>

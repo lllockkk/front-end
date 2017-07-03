@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼图</title>
+	<link rel="stylesheet" type="text/css" href="../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	<script>
+		Ext.onReady(function() {
+			var dataStore = new Ext.data.JsonStore({
+				fields: ["age", "percentage", "growing"],
+				data: [
+					{age: "小于30岁", percentage: 10, growing: 35},
+					{age: "30-40岁", percentage: 40, growing: 30},
+					{age: "40-50岁", percentage: 30, growing: 30},
+					{age: "50岁以上", percentage: 20, growing: 30},
+				]
+			});
+
+			var chart = Ext.create('Ext.chart.Chart', {
+				xtype: "chart",
+					store: dataStore,
+					animate: true,
+					legend: { position: "bottom" },
+					shadow: true,
+					series: [{
+						type: "pie",
+						field: "percentage",
+						showInLegend: true,
+						colorSet: ["#FFFF00", "#669900", "#FF6699", "#66CCCC"],
+						donut : 20,//麦圈图中空部分半径
+						label: {
+							field: "age",
+							constrast: true,
+							// color: "#FFFF00",
+							renderer: function(v) {
+								return "[" + v + "]";
+							},
+							display: "middle",
+							font: "18px 'Lucida Grande'"
+						},
+						highlight: {
+							segment: { margin: 10 }
+						},
+						tips: {
+							trackMouse: true,
+							width: 50,
+							height: 28,
+							renderer: function(storeItem) {
+								var title = storeItem.get("percentage") + "%";
+								this.setTitle(title);
+							}
+						}
+					}]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				title: "员工年龄分布图",
+				width: 400,
+				height: 400,
+				renderTo: Ext.getBody(),
+				layout: "fit",
+				items: chart
+			});
+
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

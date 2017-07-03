@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> anchor layout百分比定位 </title>
+	<link rel="stylesheet" type="text/css" href="../../ext-4.2.1/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../../ext-4.2.1/bootstrap.js"></script>
+	<script type="text/javascript" src="../../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+	
+	<script>
+		Ext.onReady(function() {
+			Ext.create("Ext.panel.Panel", {
+				layout: "anchor",
+				title: "anchor layout",
+				height: 200,
+				width: 250,
+				frame: true,
+				renderTo: "panel1",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF"
+				},
+				items: [{
+					title: "子面板",
+					html: "百分比定位(50% 50%)",
+					anchor: "50% 50%"
+				}]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				layout: "anchor",
+				title: "anchor layout",
+				height: 200,
+				width: 250,
+				frame: true,
+				renderTo: "panel2",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF"
+				},
+				items: [{
+					title: "子面板",
+					html: "偏移值定位(-30 -30)",
+					anchor: "-30 -30"
+				}]
+			});
+
+			Ext.create("Ext.panel.Panel", {
+				layout: "anchor",
+				title: "anchor layout",
+				height: 200,
+				width: 250,
+				autoScroll: true,
+				frame: true,
+				renderTo: "panel3",
+				bodyPadding: 5,
+				defaults: {
+					bodyStyle: "background-color: #FFFFFF"
+				},
+				items: [{
+					title: "子面板",
+					html: "参考边定位:<br> anchor: (r b)" + 
+						  			" <br> width: 150" + 
+						  			" <br> height: 150",
+					anchor: "r b",	// 相对于父容器的右边和底边的差值进行定位
+					width: 125,
+					height: 150
+				}]
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+</body>
+</html>

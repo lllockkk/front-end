@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D Transforms</title>
+
+	<style>
+		div {
+			width: 160px;
+			height: 160px;
+			margin: auto;
+			padding: 20px;
+			box-shadow: 0px 0px 2px gray, 2px 2px 5px gray;
+
+			text-align: center;
+			font-size: 20px;
+			color: white;
+			text-shadow: 0px 0px 30px blue, 2px 2px 5px blue;
+		}
+
+		.translate {
+			transform: translate(100px, 10px);
+		}
+		.rotate {
+			transform:rotate(20deg);
+		}
+		.scale {
+			transform: scale(1.5, 1.5);
+		}
+		.skewX {
+			transform: skewX(20deg);
+		}
+		.skew {
+			transform: skew(20deg, 20deg);
+		}
+		.matrix {
+			transform: matrix(1,-0.3,0,1,0,0);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="translate">translate(100px, 10px)</div>
+	<div class="rotate">rotate(20deg)</div>
+	<div class="scale">scale(1.5, 1.5)</div>
+	<div class="skewX">skewX(20deg)</div>
+	<div class="skew">skew(20deg,20deg)</div>
+	<div class="matrix">matrix(1,-0.3,0,1,0,0)</div>
+</body>
+</html>
